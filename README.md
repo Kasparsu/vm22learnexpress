@@ -6,4 +6,4 @@
 
 ## run
 
-`node server.js`
+`npm start`
