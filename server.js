@@ -35,6 +35,10 @@ app.post('/circle', (req, res) => {
     res.render('circleAnswer.njk', {r: req.body.radius, a: area});
 });
 
+const movieController = require('./src/movieController.js');
+app.use('/movies', movieController);
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
