@@ -1,17 +1,17 @@
 {
-    "lastId": 2,
+    "lastId": 6,
     "movies": [
-        {
-            "id": 0,
-            "name": "Pulp Fiction",
-            "year": "1994",
-            "description": "asdassdfawsdfasd"
-        },
         {
             "id": 1,
             "name": "Star Wars",
             "year": "1977",
-            "description": "vazvzvzvzvzv"
+            "description": "Cool film"
+        },
+        {
+            "id": 5,
+            "name": "43434",
+            "year": "32141",
+            "description": "affaafaf"
         }
     ]
 }
