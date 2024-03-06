@@ -1,17 +1,1 @@
-{
-    "lastId": 6,
-    "movies": [
-        {
-            "id": 1,
-            "name": "Star Wars",
-            "year": "1977",
-            "description": "Cool film"
-        },
-        {
-            "id": 5,
-            "name": "43434",
-            "year": "32141",
-            "description": "affaafaf"
-        }
-    ]
-}
+{"lastId":7,"movies":[{"id":1,"name":"Star Wars","year":"1977","description":"Cool film"},{"id":5,"name":"43434","year":"32141","description":"affaafaf"},{"id":6,"name":"Pulp Fiction","year":"123","description":"1ADAD"}]}
