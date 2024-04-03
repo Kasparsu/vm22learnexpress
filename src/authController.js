@@ -25,4 +25,32 @@ router.post('/register', async (req, res) => {
     }
 });
 
+router.get('/login', async (req, res) => {
+    res.render('auth/login.njk');
+});
+
+router.post('/login', async (req, res) => {
+    let user = await User.findOne({
+        where: {
+            email: req.body.email
+        }
+    });
+    if(!user || !bcrypt.compareSync(req.body.password, user.password)){
+        res.redirect('/login');
+    } else {
+        req.session.user = user;
+        req.session.save((err) => {
+            res.redirect('/');
+        });       
+    }
+});
+
+router.get('/logout', async (req, res) => {
+    req.session.user = null;
+    req.session.save((err) => {
+        res.redirect('/');
+    });
+    
+});
+
 module.exports = router;

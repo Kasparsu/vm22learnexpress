@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -e js,json,njk"
+    "start": "nodemon -e js,json,njk -i sessions"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "nodemon": "^3.0.3",
     "nunjucks": "^3.2.4",
     "sequelize": "^6.37.1",
+    "session-file-store": "^1.5.0",
     "sqlite3": "^5.1.7"
   }
 }

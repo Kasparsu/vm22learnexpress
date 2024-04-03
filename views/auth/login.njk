@@ -1,0 +1,9 @@
+{% extends "partials/layout.njk" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <form action="/login" method="POST">
+    <input type="email" placeholder="Email" name="email">
+    <input type="password" placeholder="Password" name="password">
+    <input type="submit" value="Login">
+  </form>
+{% endblock %}

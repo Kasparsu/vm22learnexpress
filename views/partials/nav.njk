@@ -4,5 +4,15 @@
     <li><a href="/form">Form</a></li>
     <li><a href="/circle">Circle</a></li>
     <li><a href="/movies">Movies</a></li>
-    <li><a href="/register">Register</a></li>
+    {% if not user %}
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+    {% else %}
+        <li>
+            {{user.name}}
+            <ul>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </li>
+    {% endif %}
 </ul>
