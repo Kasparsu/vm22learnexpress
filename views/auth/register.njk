@@ -1,6 +1,13 @@
 {% extends "partials/layout.njk" %}
 {% block title %}Register{% endblock %}
 {% block content %}
+  {% if errors %}
+    <ul>
+      {% for error in errors %}
+        <li>{{error}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   <form action="/register" method="POST">
     <input type="text" placeholder="Name" name="name">
     <input type="email" placeholder="Email" name="email">

@@ -3,7 +3,9 @@
     <li><a href="/page2">Page2</a></li>
     <li><a href="/form">Form</a></li>
     <li><a href="/circle">Circle</a></li>
-    <li><a href="/movies">Movies</a></li>
+    {% if user %}
+        <li><a href="/movies">Movies</a></li>
+    {% endif %}
     {% if not user %}
         <li><a href="/register">Register</a></li>
         <li><a href="/login">Login</a></li>

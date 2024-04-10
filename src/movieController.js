@@ -5,9 +5,20 @@ const {Sequelize, QueryTypes, DataTypes } = require('sequelize');
 let sequelize = new Sequelize('sqlite:db.sqlite');
 
 const Movie = require('./models/Movie.js');
+const User = require('./models/User.js');
+
+router.use((req, res, next) => {
+    if(req.session.user){
+        next();
+    } else {
+        res.redirect('/login');
+    }
+});
 
 router.get('/', async (req, res) => {
-    let movies = await Movie.findAll();
+    let movies = await Movie.findAll({
+        include: User
+    });
     res.render('movies/index.njk',{movies: movies});
 });
 
@@ -19,7 +30,8 @@ router.post('/add', async (req, res) => {
     await Movie.create({
         name:req.body.movie,
         year: req.body.year,
-        description: req.body.description
+        description: req.body.description,
+        user_id: req.session.user.id
     });
     res.redirect('/movies/');
 });

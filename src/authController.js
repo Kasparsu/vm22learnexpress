@@ -13,8 +13,18 @@ router.post('/register', async (req, res) => {
             email: req.body.email
         }
     });
-    if(req.body.password !== req.body.password_confirm || user){
-        res.redirect('/register');
+    let errors = [];
+    if(req.body.password !== req.body.password_confirm){
+       errors.push("passwords don't match");
+    }
+    if(user){
+        errors.push("There is user with this email");
+    }
+    if(errors.length){
+        req.session.errors = errors;
+        req.session.save((err) => {
+            res.redirect('/register');
+        });
     } else {
         User.create({
             name: req.body.name,
@@ -36,7 +46,10 @@ router.post('/login', async (req, res) => {
         }
     });
     if(!user || !bcrypt.compareSync(req.body.password, user.password)){
-        res.redirect('/login');
+        req.session.errors = ['Invalid credentials!'];
+        req.session.save((err) => {
+            res.redirect('/login');
+        });
     } else {
         req.session.user = user;
         req.session.save((err) => {

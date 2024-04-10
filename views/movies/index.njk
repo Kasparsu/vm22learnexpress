@@ -12,6 +12,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Year</th>
+            <th>User</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                     <td>{{movie.id}}</td>
                     <td>{{movie.name}}</td>
                     <td>{{movie.year}}</td>
+                    <td>{{movie.User.name}}</td>
                     <td>
                         <a href="/movies/view?id={{movie.id}}">View</a>
                         <a href="/movies/edit/{{movie.id}}">Edit</a>
