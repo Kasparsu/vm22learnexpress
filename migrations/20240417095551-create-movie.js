@@ -21,12 +21,13 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      UserId: {
+      userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: User,
-          key:'id'
-        }
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
