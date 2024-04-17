@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const {Sequelize, QueryTypes, DataTypes } = require('sequelize');
-let sequelize = new Sequelize('sqlite:db.sqlite');
-
-const Movie = require('./models/Movie.js');
-const User = require('./models/User.js');
+const {Movie, User} = require('../models/index.js');
 
 router.use((req, res, next) => {
     if(req.session.user){
