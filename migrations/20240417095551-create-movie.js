@@ -21,7 +21,7 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      userId: {
+      UserId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',

@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      //@todo
-      //this.belongsTo(models.User);
+      this.belongsTo(models.User);
     }
   }
   Movie.init({
