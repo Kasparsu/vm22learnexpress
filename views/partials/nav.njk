@@ -1,20 +1,53 @@
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/page2">Page2</a></li>
-    <li><a href="/form">Form</a></li>
-    <li><a href="/circle">Circle</a></li>
-    {% if user %}
-        <li><a href="/movies">Movies</a></li>
-    {% endif %}
-    {% if not user %}
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
-    {% else %}
-        <li>
-            {{user.name}}
-            <ul>
-                <li><a href="/logout">Logout</a></li>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Kaspars Movie Site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/page2">Page2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/form">Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/circle">Circle</a>
+                </li>
+                {% if user %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/movies">Movies</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
-        </li>
-    {% endif %}
-</ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                {% if not user %}
+                    <li class="nav-item me-2">
+                        <a class="btn btn-success" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="/login">Login</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{user.name}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
