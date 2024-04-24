@@ -1,13 +1,8 @@
 {% extends "partials/layout.njk" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
-    <a href="/movies/add">Add</a>
-    <table>
+    <a class="btn btn-primary mb-2" href="/movies/add">Add</a>
+    <table class="table table-striped table-hover table-bordered">
         <thead>
             <th>ID</th>
             <th>Name</th>
@@ -23,9 +18,11 @@
                     <td>{{movie.year}}</td>
                     <td>{{movie.User.name}}</td>
                     <td>
-                        <a href="/movies/view?id={{movie.id}}">View</a>
-                        <a href="/movies/edit/{{movie.id}}">Edit</a>
-                        <a href="/movies/delete/{{movie.id}}">Delete</a>
+                        <div class="btn-group">
+                            <a class="btn btn-info" href="/movies/view?id={{movie.id}}">View</a>
+                            <a class="btn btn-warning" href="/movies/edit/{{movie.id}}">Edit</a>
+                            <a class="btn btn-danger" href="/movies/delete/{{movie.id}}">Delete</a>
+                        </div>
                     </td>
                 </tr>
             {% endfor %}

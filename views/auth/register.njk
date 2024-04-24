@@ -2,17 +2,29 @@
 {% block title %}Register{% endblock %}
 {% block content %}
   {% if errors %}
-    <ul>
       {% for error in errors %}
-        <li>{{error}}</li>
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
       {% endfor %}
-    </ul>
   {% endif %}
   <form action="/register" method="POST">
-    <input type="text" placeholder="Name" name="name">
-    <input type="email" placeholder="Email" name="email">
-    <input type="password" placeholder="Password" name="password">
-    <input type="password" placeholder="Password Confirmation" name="password_confirm">
-    <input type="submit" value="Register">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" class="form-control" type="text" placeholder="Name" name="name">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" class="form-control" type="email" placeholder="Email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+    </div>
+    <div class="mb-3">
+        <label for="password_confirm" class="form-label">Password Confirm</label>
+        <input id="password_confirm" class="form-control" type="password" placeholder="Password Confirmation" name="password_confirm">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Register">
   </form>
 {% endblock %}

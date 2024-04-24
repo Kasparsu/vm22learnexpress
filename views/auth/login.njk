@@ -2,15 +2,21 @@
 {% block title %}Login{% endblock %}
 {% block content %}
   {% if errors %}
-    <ul>
       {% for error in errors %}
-        <li>{{error}}</li>
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
       {% endfor %}
-    </ul>
   {% endif %}
   <form action="/login" method="POST">
-    <input type="email" placeholder="Email" name="email">
-    <input type="password" placeholder="Password" name="password">
-    <input type="submit" value="Login">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" class="form-control" type="email" placeholder="Email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Login">
   </form>
 {% endblock %}
