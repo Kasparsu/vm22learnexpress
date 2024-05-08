@@ -5,6 +5,11 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Movie extends Model {
+
+    snippet(){
+      return this.description.substring(0,300);
+    }
+
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
