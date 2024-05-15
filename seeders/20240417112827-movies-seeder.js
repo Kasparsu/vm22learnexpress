@@ -10,7 +10,8 @@ module.exports = {
         name: faker.lorem.words({ min: 1, max: 3 }),
         year: faker.number.int({ min: 1888, max: 2024 }),
         description: faker.lorem.paragraphs(5),
-        UserId: users[faker.number.int({ max: users.length-1 })].id
+        UserId: users[faker.number.int({ max: users.length-1 })].id,
+        image: `https://picsum.photos/seed/${faker.string.uuid()}/200/300`
       });
     }
   },

@@ -1,10 +1,11 @@
 {% extends "partials/layout.njk" %}
 {% block title %}Add movie{% endblock %}
 {% block content %}
-  <form action="/movies/add" method="POST">
+  <form action="/movies/add" method="POST" enctype="multipart/form-data">
     <input type="text" placeholder="Movie name" name="movie">
     <input type="number" placeholder="Movie year" name="year">
     <textarea name="description" placeholder="Movie description"></textarea>
+    <input type="file" name="image">
     <input type="submit" value="Add">
   </form>
 {% endblock %}
